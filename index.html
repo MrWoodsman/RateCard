@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Boostrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>Rate Card</title>
+</head>
+<body>
+    <div class="card" rate="0">
+        <div class="star_box"><i class="bi bi-star-fill star"></i></div>
+        <h1 class="title">How did we do?</h1>
+        <p class="text">Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+        <div class="bottom_box">
+            <div class="rate_box">
+                <div class="rate">1</div>
+                <div class="rate">2</div>
+                <div class="rate">3</div>
+                <div class="rate">4</div>
+                <div class="rate">5</div>
+            </div>
+            <button class="submit_btn" onclick="console.log('SUBMIT')">SUBMIT</button>
+        </div>
+    </div>
+</body>
+    <script>
+        document.querySelectorAll('.rate').forEach((e) => {
+            e.addEventListener('click', (e) => {
+                const to = e.target
+                // USUWANIE Z KAZDEGO KLASY
+                document.querySelectorAll('.rate').forEach((e) => {
+                    e.classList.remove('selected')
+                })
+                // DODAWANIE DO JEDNEGO KLASY
+                document.querySelectorAll('.rate').forEach((e) => {
+                    if(e.innerText == to.innerText) {
+                        e.classList.add('selected')
+                        to.parentElement.parentElement.parentElement.setAttribute('rate',to.innerText)
+                    }
+                })
+                // 
+            })
+        })
+    </script>
+</html>
